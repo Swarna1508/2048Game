@@ -53,20 +53,23 @@ function updateTile(tile, num) {
   }
 }
 
-document.addEventListener('keyup', (e) => {
+window.addEventListener('keyup', (e) => {
   if (e.code == "ArrowLeft") {
       slideLeft();
+      setTwo();
   }
   else if (e.code == "ArrowRight") {
       slideRight();
+      setTwo();
   }
   else if (e.code == "ArrowUp") {
       slideUp();
+      setTwo();
   }
   else if (e.code == "ArrowDown") {
       slideDown();
+      setTwo();
   }
-  setTwo();
   // Update the score
   document.getElementById('score-value').innerText = score;
 })
