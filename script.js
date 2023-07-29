@@ -7,6 +7,9 @@ let columns=4;
 // Start a new game when the page loads
 window.onload = function() {
   newGame();
+  if(localStorage.getItem('G-best')==null){
+    localStorage.setItem('G-best',0);
+  }
 }
 
 // Function to start a new game
@@ -16,6 +19,7 @@ function newGame() {
   score = 0;
   document.getElementById('msg').style.display='none';
   document.getElementById('score-value').innerText = score;
+  document.getElementById('best-score').innerText = localStorage.getItem('G-best');
   updateBoard();
 }
 
@@ -72,6 +76,11 @@ window.addEventListener('keyup', (e) => {
   }
   // Update the score
   document.getElementById('score-value').innerText = score;
+  if(score>localStorage.getItem('G-best')){
+    localStorage.setItem('G-best',score);
+    document.getElementById('best-score').innerText = localStorage.getItem('G-best');
+  }
+
 })
 
 function filterZero(row){
